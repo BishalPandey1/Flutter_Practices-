@@ -1,4 +1,7 @@
+// ignore: unused_import
+// ignore_for_file: unnecessary_import
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:weatherapp/weather_page.dart';
 
 class MyHome extends StatefulWidget {
@@ -9,6 +12,7 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
+  TextEditingController addreshcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +43,31 @@ class _MyHomeState extends State<MyHome> {
               "Forecasts",
               style: TextStyle(
                 fontSize: 64,
-                color: Colors.yellow,
+                color: const Color.fromARGB(255, 117, 173, 223),
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 40),
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 50,
+                top: 50,
+                left: 100,
+                right: 100,
+              ),
+
+              child: TextField(controller: addreshcontroller),
+            ),
             FilledButton(
               onPressed: () {
-                Navigator.of(
-                  context,
-                ).push(MaterialPageRoute(builder: (context) => WeatherPage()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        WeatherPage(cityName: addreshcontroller.text),
+                  ),
+                );
               },
+
               child: Text("Get Started"),
             ),
           ],

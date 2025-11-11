@@ -6,8 +6,8 @@ class Weather {
 
   factory Weather.fromMap(Map<String, dynamic> map) {
     return Weather(
-      currentCondition: map['currentCondition']['condtion']['text'],
-      tempcelsious: map['tempcelsious']['temp_c'],
+      currentCondition: map['current']['condition']['text'],
+      tempcelsious: map['current']['temp_c'],
     );
   }
 }
