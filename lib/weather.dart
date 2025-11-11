@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherapp/weather_page.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({super.key});
@@ -43,7 +44,14 @@ class _MyHomeState extends State<MyHome> {
               ),
             ),
             SizedBox(height: 40),
-            FilledButton(onPressed: () {}, child: Text("Get Started")),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => WeatherPage()));
+              },
+              child: Text("Get Started"),
+            ),
           ],
         ),
       ),
